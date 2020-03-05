@@ -12,9 +12,9 @@ import org.openqa.selenium.WebElement;
 public class March4 {
     static WebDriver driver;
 
-    public static void main(String[] args)  {
-//ebayTest();
-//amazonTest();
+    public static void main(String[] args) throws Exception {
+ebayTest();
+amazonTest();
 wikiTest();
 
 
@@ -33,11 +33,12 @@ wikiTest();
 
 
     }
-    public static void amazonTest(){
+    public static void amazonTest() throws Exception{
         driver =DriverFactory.createADriver("chrome");
         driver.get("http://amazon.com");
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("java book", Keys.ENTER);
         String title=driver.getTitle();
+        Thread.sleep(2000);
         if(title.contains("java book")){
             System.out.println("TEST PASSED");
         }else{
@@ -46,11 +47,16 @@ wikiTest();
         driver.quit();
     }
 
-    public static void wikiTest(){
+    public static void wikiTest() throws Exception{
         driver= DriverFactory.createADriver("chrome");
         driver.get("https://en.wikipedia.org/wiki/Main_Page");
-        driver.findElement(By.id("searchInput")).sendKeys("Selenium (software)", Keys.ENTER);
+
+        driver.findElement(By.id("searchInput")).sendKeys("Selenium webdriver", Keys.ENTER);
+        driver.findElement(By.partialLinkText("Selenium (software)")).click();
+        Thread.sleep(2000);
+
         String link=driver.getCurrentUrl();
+
                 if(link.endsWith("Selenium_(software)")){
                     System.out.println("TEST PASSED");
                 }else{
