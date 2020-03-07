@@ -19,6 +19,7 @@ public class SeleniumHO1 {
             keysToSearch.add("berries");
             Iterator iterator=keysToSearch.iterator();
             while (iterator.hasNext()){
+
                 System.out.println(iterator.next());
             }
     }
