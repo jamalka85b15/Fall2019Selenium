@@ -3,7 +3,10 @@ package com.automation.tests.day4;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
 
 public class VerifyThatElementISGone {
     public static void main(String[] args) throws Exception {
@@ -21,5 +24,15 @@ public class VerifyThatElementISGone {
             System.out.println("TEST FAILED");
 
         }
+
+        Thread.sleep(2000);
+
+        List<WebElement> buttons=driver.findElements(By.tagName("button"));
+
+        for (WebElement button: buttons) {
+            button.click();
+            Thread.sleep(2000);
+        }
+        driver.quit();
     }
 }
