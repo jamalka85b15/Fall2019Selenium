@@ -30,6 +30,7 @@ public class FindElementsTest {
                 links=driver.findElements(By.tagName("a"));
            }
         driver.quit();
+
        }
 
     }
