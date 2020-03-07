@@ -21,8 +21,6 @@ public class FileUploading {
         BrowserUtilities.wait(5);
 
 
-
-
         driver.quit();
     }
 }
