@@ -18,6 +18,15 @@ public class NestedFrame {
 
         WebElement content = driver.findElement(By.id("content"));
         System.out.println(content.getText());
+        BrowserUtilities.wait(4);
+
+        driver.switchTo().parentFrame();
+        driver.switchTo().frame("frame-right");
+
+        WebElement body=driver.findElement(By.tagName("body"));
+        System.out.println(body.getText());
+
+        driver.quit();
 
     }
 }
