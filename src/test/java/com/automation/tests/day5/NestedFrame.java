@@ -18,5 +18,6 @@ public class NestedFrame {
 
         WebElement content = driver.findElement(By.id("content"));
         System.out.println(content.getText());
+
     }
 }
