@@ -19,7 +19,6 @@ public class SelectMultipleOptions {
         System.out.println(isMultiuple);
 
 
-
         BrowserUtilities.wait(3);
         driver.quit();
     }
