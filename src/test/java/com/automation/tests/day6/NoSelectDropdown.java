@@ -22,6 +22,7 @@ public class NoSelectDropdown {
             System.out.println(link.getText()+ " : "+ link.getAttribute("href"));
         }
 
+
         BrowserUtilities.wait(2);
         driver.quit();
     }
