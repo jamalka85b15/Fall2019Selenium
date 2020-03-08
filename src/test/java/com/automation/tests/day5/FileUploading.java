@@ -16,6 +16,7 @@ public class FileUploading {
 
         WebElement upload=driver.findElement(By.id("file-upload"));
         String filePath =System.getProperty("user.dir")+"/pom.xml";
+        System.out.println(filePath);
         upload.sendKeys(filePath);
         driver.findElement(By.id("file-submit")).click();
         BrowserUtilities.wait(5);
