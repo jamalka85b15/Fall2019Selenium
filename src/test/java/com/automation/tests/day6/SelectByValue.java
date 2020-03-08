@@ -26,5 +26,6 @@ public class SelectByValue {
         }
         BrowserUtilities.wait(2);
         driver.quit();
+
     }
 }
