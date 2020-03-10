@@ -34,7 +34,6 @@ public class Alerts {
             System.out.println("Actual: "+ actual);
         }
 
-
         BrowserUtilities.wait(3);
 
         buttons.get(1).click();
