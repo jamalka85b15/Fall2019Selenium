@@ -20,7 +20,19 @@ public class Alerts {
         buttons.get(0).click();
         BrowserUtilities.wait(3);
 
+        String popupText =driver.switchTo().alert().getText();
+        System.out.println(popupText);
         driver.switchTo().alert().accept();
+        String expected ="You successfuly clicked an alert";
+        String actual= driver.findElement(By.id("result")).getText();
+
+        if(expected.equals(actual)){
+            System.out.println("TEST PASSED");
+        }else{
+            System.out.println("TEST FAILED");
+            System.out.println("Expected: "+expected);
+            System.out.println("ActuAL: "+ actual);
+        }
 
 
 
