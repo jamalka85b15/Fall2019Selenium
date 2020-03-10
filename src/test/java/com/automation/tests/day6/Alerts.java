@@ -3,6 +3,7 @@ package com.automation.tests.day6;
 import com.automation.tests.BrowserUtilities;
 import com.automation.utilities.DriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,13 +18,16 @@ public class Alerts {
         driver.get("http://practice.cybertekschool.com/javascript_alerts");
         BrowserUtilities.wait(3);
         List<WebElement> buttons=driver.findElements(By.tagName("button"));
+
         buttons.get(0).click();
         BrowserUtilities.wait(3);
 
         String popupText =driver.switchTo().alert().getText();
         System.out.println(popupText);
+
         driver.switchTo().alert().accept();
-        String expected ="You successfuly clicked an alert";
+
+        String expected ="You successfully clicked an alert";
         String actual= driver.findElement(By.id("result")).getText();
 
         if(expected.equals(actual)){
@@ -39,6 +43,36 @@ public class Alerts {
         buttons.get(1).click();
         BrowserUtilities.wait(3);
         driver.switchTo().alert().dismiss();
+
+        String expected2="You clicked: Cancel";
+        String actual2=driver.findElement(By.id("result")).getText();
+
+        if(expected2.equals(actual2)){
+            System.out.println("TEST PASSED");
+        }else{
+            System.out.println("TEST FAILED");
+            System.out.println("Expceted2 :"+ expected2);
+            System.out.println("Actual2 :"+ actual2);
+        }
+
+        BrowserUtilities.wait(2);
+
+       buttons.get(2);
+       BrowserUtilities.wait(2);
+        Alert alert =driver.switchTo().alert();
+        alert.sendKeys("Hello, World");
+        alert.accept();
+
+        String actual3= driver.findElement(By.id("result")).getText();
+        String expected3="Hello, World!";
+
+        if(actual3.endsWith(expected3)){
+            System.out.println("TEST PASSED");
+        }else{
+            System.out.println("TEST FAILED");
+            System.out.println("Expceted3 :"+ expected3);
+            System.out.println("Actual3 :"+ actual3);
+        }
 
 
         BrowserUtilities.wait(3);
