@@ -19,5 +19,6 @@ public class SelectByIndex {
 
         BrowserUtilities.wait(3);
         driver.quit();
+
     }
 }
