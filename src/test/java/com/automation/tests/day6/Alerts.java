@@ -31,9 +31,15 @@ public class Alerts {
         }else{
             System.out.println("TEST FAILED");
             System.out.println("Expected: "+expected);
-            System.out.println("ActuAL: "+ actual);
+            System.out.println("Actual: "+ actual);
         }
 
+
+        BrowserUtilities.wait(3);
+
+        buttons.get(1).click();
+        BrowserUtilities.wait(3);
+        driver.switchTo().alert().dismiss();
 
 
         BrowserUtilities.wait(3);

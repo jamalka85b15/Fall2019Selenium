@@ -17,6 +17,8 @@ public class SelectByIndex {
         stateSelect.selectByIndex(9);
 
 
+
+
         BrowserUtilities.wait(3);
         driver.quit();
 
