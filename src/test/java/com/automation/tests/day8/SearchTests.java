@@ -24,6 +24,7 @@ public class SearchTests {
         BrowserUtilities.wait(3);
         driver.findElement(By.name("q")).sendKeys("java", Keys.ENTER);
         BrowserUtilities.wait(5);
+
         List<WebElement> searchItems=driver.findElements(By.tagName("h3"));
         for(WebElement searchItem: searchItems){
             String var=searchItem.getText();
@@ -38,6 +39,24 @@ public class SearchTests {
     @Test(description = "Search for Java book on Amazon")
     public void amazonSearch(){
         driver.get("http://amazon.com");
+        BrowserUtilities.wait(5);
+
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java", Keys.ENTER);
+        BrowserUtilities.wait(5);
+
+        List<WebElement> searchItems=driver.findElements(By.tagName("h2"));
+        for (WebElement serchItem: searchItems){
+            System.out.println("Title: "+ serchItem.getText());
+        }
+        searchItems.get(0).click();
+        BrowserUtilities.wait(5);
+
+        WebElement productTitle=driver.findElement(By.id("title"));
+        String productTitleString=productTitle.getText();
+        System.out.println(productTitleString);
+
+        Assert.assertTrue(productTitleString.contains("Java"));
+
     }
 
 
