@@ -11,6 +11,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class PracticeTests {
    private WebDriver driver;
 
@@ -24,6 +26,29 @@ public void loginTest(){
     String expected ="Welcome to the Secure Area. When you are done click logout below.";
     String actual=driver.findElement(By.tagName("h4")).getText();
     Assert.assertEquals(expected,actual,"syb-header is not matching");
+}
+
+@Test
+public void forgotPassword(){
+    driver.findElement(By.linkText("Forgot Password")).click();
+    driver.findElement(By.name("email")).sendKeys("jamal_d@list.ru");
+    driver.findElement(By.id("form_submit")).click();
+    String expected = "Your e-mail's been sent!";
+    String actual=driver.findElement(By.name("confirmation_message")).getText();
+    Assert.assertEquals(actual,expected);
+
+}
+
+@Test
+public void selectBox1(){
+    driver.findElement(By.linkText("Checkboxes")).click();
+    List<WebElement> checkboxes=driver.findElements(By.tagName("input"));
+    BrowserUtilities.wait(3);
+
+    checkboxes.get(0).click();
+     Assert.assertTrue(checkboxes.get(0).isSelected());
+     BrowserUtilities.wait(4);
+
 }
 
 
