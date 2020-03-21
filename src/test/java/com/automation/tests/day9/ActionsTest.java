@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -38,6 +39,36 @@ public class ActionsTest {
         actions.moveToElement(img1).perform();
        WebElement imgText1 = driver.findElement(By.xpath("//h5[text()='name: user1']"));
         Assert.assertTrue(imgText1.isDisplayed());
+
+        actions.moveToElement(img2).perform();
+        WebElement imgText2=driver.findElement(By.xpath("//h5[text()='name: user2']"));
+        Assert.assertTrue(imgText2.isDisplayed());
+    }
+
+    @Test
+    public void jqueryTest(){
+        driver.get("http://practice.cybertekschool.com/jqueryui/menu");
+        BrowserUtilities.wait(2);
+        WebElement enabled=driver.findElement(By.id("ui-id-3"));
+        WebElement downloads=driver.findElement(By.id("ui-id-4"));
+        WebElement pdf=driver.findElement(By.id("ui-id-5"));
+        actions.moveToElement(enabled).pause(1000)
+                .moveToElement(downloads).pause(1000)
+                .moveToElement(pdf).pause(1000).perform();
+
+    }
+    @Test
+    public void dragAndDropTest() {
+        driver.get("https://demos.telerik.com/kendo-ui/dragdrop");
+        driver.manage().window().maximize();
+        BrowserUtilities.wait(3);
+        WebElement earth = driver.findElement(By.id("droptarget"));
+        WebElement moon = driver.findElement(By.id("draggable"));
+
+        actions.dragAndDrop(moon, earth).perform();
+        String expected = "You did great!";
+        String actual = earth.getText();
+        Assert.assertEquals(expected, actual);
     }
 
 
