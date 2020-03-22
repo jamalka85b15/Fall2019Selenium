@@ -1,5 +1,5 @@
 package com.automation.tests.vytrack.fleet.activities;
-import com.automation.tests.BrowserUtilities;
+import com.automation.utilities.BrowserUtilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

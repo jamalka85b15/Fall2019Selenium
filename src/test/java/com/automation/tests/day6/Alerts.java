@@ -1,7 +1,6 @@
 package com.automation.tests.day6;
 
-import com.automation.tests.BrowserUtilities;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.BrowserUtilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
