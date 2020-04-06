@@ -1,7 +1,7 @@
 package com.automation.tests.day10;
 
 import com.automation.utilities.BrowserUtilities;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,7 @@ public class JSExecuter {
 
     @BeforeMethod
     public void setup(){
-        driver = DriverFactory.createADriver("chrome");
+        driver = WebDriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/");
         driver.manage().window().maximize();
     }

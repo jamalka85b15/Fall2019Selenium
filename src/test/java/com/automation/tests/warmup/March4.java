@@ -1,6 +1,6 @@
 package com.automation.tests.warmup;
 
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -23,7 +23,7 @@ wikiTest();
 
     }
     public static void ebayTest() {
-        driver= DriverFactory.createADriver("chrome");
+        driver= WebDriverFactory.createADriver("chrome");
         driver.get("http://ebay.com");
         driver.findElement(By.id("gh-ac")).sendKeys("java book");
         driver.findElement(By.id("gh-btn")).click();
@@ -34,7 +34,7 @@ wikiTest();
 
     }
     public static void amazonTest() throws Exception{
-        driver =DriverFactory.createADriver("chrome");
+        driver = WebDriverFactory.createADriver("chrome");
         driver.get("http://amazon.com");
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("java book", Keys.ENTER);
         String title=driver.getTitle();
@@ -48,7 +48,7 @@ wikiTest();
     }
 
     public static void wikiTest() throws Exception{
-        driver= DriverFactory.createADriver("chrome");
+        driver= WebDriverFactory.createADriver("chrome");
         driver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         driver.findElement(By.id("searchInput")).sendKeys("Selenium webdriver", Keys.ENTER);

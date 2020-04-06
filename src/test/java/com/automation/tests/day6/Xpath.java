@@ -1,14 +1,14 @@
 package com.automation.tests.day6;
 
 import com.automation.utilities.BrowserUtilities;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Xpath {
     public static void main(String[] args) {
-        WebDriver driver= DriverFactory.createADriver("chrome");
+        WebDriver driver= WebDriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/multiple_buttons");
         BrowserUtilities.wait(3);
 

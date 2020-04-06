@@ -1,7 +1,7 @@
 package com.automation.tests.day9;
 
 import com.automation.utilities.BrowserUtilities;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +18,7 @@ public class ActionsTest {
 
     @BeforeMethod
     public void setup(){
-        driver= DriverFactory.createADriver("chrome");
+        driver= WebDriverFactory.createADriver("chrome");
         actions=new Actions(driver);
 
     }

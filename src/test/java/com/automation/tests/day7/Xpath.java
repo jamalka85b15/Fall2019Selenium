@@ -1,7 +1,7 @@
 package com.automation.tests.day7;
 
 import com.automation.utilities.BrowserUtilities;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,7 +11,7 @@ public class Xpath {
     static String LoginBntLocator="//button[contains(text(), 'Login')]";
     public static void main(String[] args) {
 
-        WebDriver driver= DriverFactory.createADriver("chrome");
+        WebDriver driver= WebDriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/login");
         BrowserUtilities.wait(3);
         driver.findElement(By.xpath(userNameLocator)).sendKeys("tomsmith");
@@ -21,5 +21,6 @@ public class Xpath {
 
         BrowserUtilities.wait(3);
         driver.quit();
+
     }
 }

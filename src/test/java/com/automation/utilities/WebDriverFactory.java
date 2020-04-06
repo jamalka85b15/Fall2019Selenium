@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class DriverFactory {
+public class WebDriverFactory {
     /*
     This method return webDriver object based on browser type
     If you want to use chrome browser, just provide chrome as parameter

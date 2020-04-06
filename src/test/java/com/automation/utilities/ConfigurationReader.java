@@ -20,6 +20,8 @@ public class ConfigurationReader {
     public static String getProperty(String keyName) {
         return configFile.getProperty(keyName);
     }
+
+
 }
 
 
