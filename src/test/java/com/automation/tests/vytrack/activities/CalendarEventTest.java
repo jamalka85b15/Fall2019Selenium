@@ -22,6 +22,9 @@ public class CalendarEventTest {
     private By passwordBy = By.id("prependedInput2");
     private By activitiesBy = By.xpath("//span[@class='title title-level-1' and contains(text(),'Activities')]");
     private By createCalendarEventBtnBy = By.cssSelector("a[title='Create Calendar event']");
+    private By currentuserBy=By.cssSelector("#user-menu > a");
+    private By ownerBy=By.className("select2-chosen");
+    private By titleBy= By.cssSelector("[name='oro_calendar_event_form[title]']");
 
     private WebDriver driver;
     private Actions actions;
@@ -31,6 +34,17 @@ public void verifyCreateButton() {
     WebElement createCallendarEventBtn= driver.findElement(createCalendarEventBtnBy);
     Assert.assertTrue(createCallendarEventBtn.isDisplayed());
 
+    }
+    @Test (description = "Default options")
+    public void verifyDefaultValues(){
+    driver.findElement(createCalendarEventBtnBy).click();
+    BrowserUtilities.wait(3);
+    String currentUserName=driver.findElement(currentuserBy).getText().trim();
+    String defaultOwner=driver.findElement(ownerBy).getText().trim();
+    Assert.assertEquals(currentUserName,defaultOwner);
+
+    WebElement titleElement= driver.findElement(titleBy);
+    Assert.assertTrue(titleElement.getAttribute("value").isEmpty());
     }
 
 
