@@ -15,18 +15,16 @@ public class NewLoginTest extends AbstractTestBase {
         //test --> ExtentTest object
         //we must add to every test at the beginning
         //test = report.createTest("Test name");
-        //test = report.createTest("Verify page title");
-
+        test = report.createTest("Verify page title");
         LoginPage loginPage = new LoginPage();
         loginPage.login();
         //like system.out, but it goes to report as well
        // test.info("Login as store manager");//log some steps
         BrowserUtils.wait(2);
-        Assert.assertEquals(Driver.getDriver().getTitle(), "Dashbo");
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Dashboard");
+
         //if assertion passed, it will set test status in report to passed
-
-
-        //test.pass("Page title Dashboard was verified");
+        test.pass("Page title Dashboard was verified");
     }
 
     /**
@@ -35,15 +33,14 @@ public class NewLoginTest extends AbstractTestBase {
 
     @Test
     public void verifyWarningMessage() {
-        //test = report.createTest("Verify warning message");
-
+        test = report.createTest("Verify warning message");
         LoginPage loginPage = new LoginPage();
         loginPage.login("wrong", "wrong");
         Assert.assertEquals(loginPage.getWarningMessageText(), "Invalid user name or password.");
         //take a screenshot
         BrowserUtils.getScreenshot("warning_message");
 
-        //test.pass("Warning message is displayed");
+        test.pass("Warning message is displayed");
     }
 
 //    @Test(dataProvider = "credentials")

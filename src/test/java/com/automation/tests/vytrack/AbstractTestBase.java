@@ -27,17 +27,17 @@ public abstract class AbstractTestBase {
 
     @BeforeTest
 //    @Parameters("reportName")
-    public void setupTest(@Optional String reportName) {
+    public void setupTest() {
 //        System.out.println("Report name: " + reportName);
 //        reportName = reportName == null ? "report.html" : reportName + ".html";
-//
+
         report = new ExtentReports();
         String reportPath = "";
 //        //location of report file
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
-            reportPath = System.getProperty("user.dir") + "\\test-output\\" + reportName;
+            reportPath = System.getProperty("user.dir") + "\\test-output\\report.html";
         } else {
-            reportPath = System.getProperty("user.dir") + "/test-output/" + reportName;
+            reportPath = System.getProperty("user.dir") + "/test-output/report.html";
         }
 //
         htmlReporter = new ExtentHtmlReporter(reportPath);      //---->  is a HTML report itself
