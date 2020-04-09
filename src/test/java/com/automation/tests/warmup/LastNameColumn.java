@@ -1,6 +1,6 @@
 package com.automation.tests.warmup;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,7 @@ public class LastNameColumn {
     @Test
     public void verifyNameOrder() {
         driver.findElement(By.xpath("//table[1]//*[text()='Last Name']")).click();
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         List<WebElement> column = driver.findElements(By.xpath("//table[1]//tbody//td[1]"));
         for (int i = 0; i < column.size()-1; i++) {
             String value = column.get(i).getText();
@@ -38,7 +38,7 @@ public class LastNameColumn {
 
     @AfterMethod
     public void teardown() {
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         driver.quit();
     }
 }

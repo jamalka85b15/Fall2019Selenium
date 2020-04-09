@@ -1,6 +1,6 @@
 package com.automation.tests.day8;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +22,7 @@ public void loginTest(){
     driver.findElement(By.name("username")).sendKeys("tomsmith");
     driver.findElement(By.name("password")).sendKeys("SuperSecretPassword");
     driver.findElement(By.id("wooden_spoon")).click();
-    BrowserUtilities.wait(5);
+    BrowserUtils.wait(5);
     String expected ="Welcome to the Secure Area. When you are done click logout below.";
     String actual=driver.findElement(By.tagName("h4")).getText();
     Assert.assertEquals(expected,actual,"syb-header is not matching");
@@ -43,11 +43,11 @@ public void forgotPassword(){
 public void selectBox1(){
     driver.findElement(By.linkText("Checkboxes")).click();
     List<WebElement> checkboxes=driver.findElements(By.tagName("input"));
-    BrowserUtilities.wait(3);
+    BrowserUtils.wait(3);
 
     checkboxes.get(0).click();
      Assert.assertTrue(checkboxes.get(0).isSelected());
-     BrowserUtilities.wait(4);
+     BrowserUtils.wait(4);
 
 }
 

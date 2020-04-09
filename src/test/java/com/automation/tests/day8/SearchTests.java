@@ -1,6 +1,6 @@
 package com.automation.tests.day8;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -21,9 +21,9 @@ public class SearchTests {
     @Test
     public void googleSearchTest(){
         driver.get("http://google.com");
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         driver.findElement(By.name("q")).sendKeys("java", Keys.ENTER);
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
 
         List<WebElement> searchItems=driver.findElements(By.tagName("h3"));
         for(WebElement searchItem: searchItems){
@@ -39,17 +39,17 @@ public class SearchTests {
     @Test(description = "Search for Java book on Amazon")
     public void amazonSearch(){
         driver.get("http://amazon.com");
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
 
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java", Keys.ENTER);
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
 
         List<WebElement> searchItems=driver.findElements(By.tagName("h2"));
         for (WebElement serchItem: searchItems){
             System.out.println("Title: "+ serchItem.getText());
         }
         searchItems.get(0).click();
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
 
         WebElement productTitle=driver.findElement(By.id("title"));
         String productTitleString=productTitle.getText();

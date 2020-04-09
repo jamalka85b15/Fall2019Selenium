@@ -1,6 +1,6 @@
 package com.automation.tests.day6;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,12 +15,12 @@ public class SelectByText {
         WebDriverManager.chromedriver().version("79").setup();
         WebDriver driver = new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/dropdown");
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         WebElement simpleDropdown = driver.findElement(By.id("dropdown"));
 
         Select selectSimpleDropdown = new Select(simpleDropdown);
         selectSimpleDropdown.selectByVisibleText("Option 2");
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         selectSimpleDropdown.selectByVisibleText("Option 1");
 
         Select selectYear = new Select(driver.findElement(By.id("year")));
@@ -31,14 +31,14 @@ public class SelectByText {
         selectMonth.selectByVisibleText("February");
         selectYear.selectByVisibleText("2003");
 
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         List<WebElement> months=selectMonth.getOptions();
         for(WebElement month: months){
             String monthName=month.getText();
             selectMonth.selectByVisibleText(monthName);
-            BrowserUtilities.wait(1);
+            BrowserUtils.wait(1);
         }
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         Select stateSelect=new Select(driver.findElement(By.id("state")));
         stateSelect.selectByVisibleText("District of Columbia");
 
@@ -54,7 +54,7 @@ public class SelectByText {
         for (WebElement stateOption: states){
             System.out.println(stateOption.getText());
         }
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
     driver.quit();
 
     }

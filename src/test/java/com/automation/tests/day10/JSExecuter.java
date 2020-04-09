@@ -1,6 +1,6 @@
 package com.automation.tests.day10;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -39,7 +39,7 @@ public class JSExecuter {
         js.executeScript("arguments[0].click()",link);
         WebElement button6=driver.findElement(By.id("disappearing_button"));
         js.executeScript("arguments[0].click()",button6);
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         WebElement result=driver.findElement(By.id("result"));
         Assert.assertEquals(result.getText(),"Now it's gone!");
 
@@ -48,7 +48,7 @@ public class JSExecuter {
     @Test
     public void textInputTest() {
         driver.findElement(By.linkText("Form Authentication")).click();
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         WebElement username = driver.findElement(By.name("username"));
         WebElement password = driver.findElement(By.name("password"));
         WebElement loginbtn = driver.findElement(By.name("wooden_spoon"));
@@ -60,7 +60,7 @@ public class JSExecuter {
         js.executeScript("arguments[0].setAttribute('value', 'tomsmith')", username);
         js.executeScript("arguments[0].setAttribute('value', 'SuperSecretPassword')", password);
         js.executeScript("arguments[0].click()", loginbtn);
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
         String expected = "Welcome to the Secure Area. When you are done click logout below.";
         String subheader = js.executeScript("return document.getElementsByClassName('subheader')[0].textContent")
                 .toString();
@@ -68,7 +68,7 @@ public class JSExecuter {
     }
         @Test
     public void scrollToElement(){
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
 
 
 

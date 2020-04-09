@@ -1,6 +1,6 @@
 package com.automation.tests.day5;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ public class RadioButtonTest {
     public static void main(String[] args) {
         WebDriver driver= WebDriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/radio_buttons");
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         WebElement blackbutton=driver.findElement(By.id("black"));
         if(blackbutton.isDisplayed() && blackbutton.isEnabled()){
             System.out.println("CLICKED ON BLACK BUTTON");

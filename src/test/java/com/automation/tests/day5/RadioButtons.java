@@ -1,6 +1,6 @@
 package com.automation.tests.day5;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +15,7 @@ public class RadioButtons {
         WebDriver driver= new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/radio_buttons");
         driver.manage().window().maximize();
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         List<WebElement> radioButtons=driver.findElements(By.tagName("input"));
         for(WebElement radioButton:radioButtons){
 
@@ -24,7 +24,7 @@ public class RadioButtons {
           if(radioButton.isEnabled()){
              radioButton.click();
             System.out.println("Clicked on :: "+id);
-            BrowserUtilities.wait(1);
+            BrowserUtils.wait(1);
 
         }else{
               System.out.println("Disabled :: "+ id);

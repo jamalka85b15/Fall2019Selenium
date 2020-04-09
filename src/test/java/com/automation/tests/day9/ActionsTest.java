@@ -1,6 +1,6 @@
 package com.automation.tests.day9;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +25,7 @@ public class ActionsTest {
     @Test
     public void hoverOnImage(){
         driver.get("http://practice.cybertekschool.com/hovers");
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
         WebElement img1=driver.findElement(By.xpath("(//img)[1]"));
         WebElement img2=driver.findElement(By.xpath("(//img)[2]"));
         WebElement img3=driver.findElement(By.xpath("(//img)[3]"));
@@ -34,7 +34,7 @@ public class ActionsTest {
         actions.moveToElement(img1).pause(1000)
                 .moveToElement(img2).pause(1000)
                 .moveToElement(img3).build().perform();
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         actions.moveToElement(img1).perform();
        WebElement imgText1 = driver.findElement(By.xpath("//h5[text()='name: user1']"));
         Assert.assertTrue(imgText1.isDisplayed());
@@ -47,7 +47,7 @@ public class ActionsTest {
     @Test
     public void jqueryTest(){
         driver.get("http://practice.cybertekschool.com/jqueryui/menu");
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         WebElement enabled=driver.findElement(By.id("ui-id-3"));
         WebElement downloads=driver.findElement(By.id("ui-id-4"));
         WebElement pdf=driver.findElement(By.id("ui-id-5"));
@@ -60,7 +60,7 @@ public class ActionsTest {
     public void dragAndDropTest() {
         driver.get("https://demos.telerik.com/kendo-ui/dragdrop");
         driver.manage().window().maximize();
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         WebElement earth = driver.findElement(By.id("droptarget"));
         WebElement moon = driver.findElement(By.id("draggable"));
 

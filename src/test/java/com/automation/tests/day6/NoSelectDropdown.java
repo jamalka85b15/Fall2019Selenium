@@ -1,6 +1,6 @@
 package com.automation.tests.day6;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,9 +12,9 @@ public class NoSelectDropdown {
     public static void main(String[] args) {
         WebDriver driver = WebDriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/dropdown");
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         driver.findElement(By.id("dropdownMenuLink")).click();
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
 
 //        driver.findElement(By.linkText("Google")).click();
         List<WebElement> allLinks=driver.findElements(By.className("dropdown-item"));
@@ -22,7 +22,7 @@ public class NoSelectDropdown {
             System.out.println(link.getText()+ " : "+ link.getAttribute("href"));
         }
 
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         driver.quit();
     }
 

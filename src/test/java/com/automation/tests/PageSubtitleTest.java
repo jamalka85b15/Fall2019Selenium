@@ -6,7 +6,7 @@ import com.automation.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
 
 
-public class PageSubtitleTest extends TestBase {
+public class PageSubtitleTest extends AbstractTestBase {
 
     @Test
     public void verifyySubtitleTest() {

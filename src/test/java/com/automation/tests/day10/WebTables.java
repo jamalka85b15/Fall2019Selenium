@@ -1,6 +1,6 @@
 package com.automation.tests.day10;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +24,7 @@ public class WebTables {
         for(WebElement columnName:columnNames){
             System.out.println(columnName.getText());
         }
-        Assert.assertEquals(BrowserUtilities.getTextFromWebElements(columnNames),expected);
+        Assert.assertEquals(BrowserUtils.getTextFromWebElements(columnNames),expected);
     }
 
     @BeforeMethod
@@ -35,7 +35,7 @@ public class WebTables {
     }
     @AfterMethod
     public void teardown(){
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         driver.quit();
     }
 }

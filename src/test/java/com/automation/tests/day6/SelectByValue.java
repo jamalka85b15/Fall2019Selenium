@@ -1,6 +1,6 @@
 package com.automation.tests.day6;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ public class SelectByValue {
         WebDriverManager.chromedriver().version("79").setup();
         WebDriver driver = new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/dropdown");
-        BrowserUtilities.wait(3);
+        BrowserUtils.wait(3);
         Select statesSelect=new Select(driver.findElement(By.id("state")));
 
         statesSelect.selectByValue("DC");
@@ -24,7 +24,7 @@ public class SelectByValue {
         }else{
             System.out.println("TEST FAILED");
         }
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         driver.quit();
 
     }

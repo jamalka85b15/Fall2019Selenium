@@ -1,5 +1,5 @@
 package com.automation.tests.vytrack.fleet;
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -56,13 +56,13 @@ public class VehiclePageTests {
         driver.manage().window().maximize();
         driver.findElement(usernameBy).sendKeys(username);
         driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
         driver.findElement(fleetBy).click();
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
 
         driver.findElement(By.linkText("Vehicles")).click();
 
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
     }
 
     //*************************************************************

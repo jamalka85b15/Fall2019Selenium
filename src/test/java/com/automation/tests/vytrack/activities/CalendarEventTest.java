@@ -1,6 +1,6 @@
 package com.automation.tests.vytrack.activities;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -38,7 +38,7 @@ public void verifyCreateButton() {
     @Test (description = "Default options")
     public void verifyDefaultValues(){
     driver.findElement(createCalendarEventBtnBy).click();
-    BrowserUtilities.wait(3);
+    BrowserUtils.wait(3);
     String currentUserName=driver.findElement(currentuserBy).getText().trim();
     String defaultOwner=driver.findElement(ownerBy).getText().trim();
     Assert.assertEquals(currentUserName,defaultOwner);
@@ -57,11 +57,11 @@ public void verifyCreateButton() {
         actions=new Actions(driver);
         driver.findElement(usernameBy).sendKeys(storeManagerUserName);
         driver.findElement(passwordBy).sendKeys(storeManagerPassword, Keys.ENTER);
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
         actions.moveToElement(driver.findElement(activitiesBy)).perform();
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         driver.findElement(By.linkText("Calendar Events")).click();
-        BrowserUtilities.wait(5);
+        BrowserUtils.wait(5);
 
 
     }

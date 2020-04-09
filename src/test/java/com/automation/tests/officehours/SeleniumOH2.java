@@ -1,6 +1,6 @@
 package com.automation.tests.officehours;
 
-import com.automation.utilities.BrowserUtilities;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -16,14 +16,14 @@ public class SeleniumOH2 {
         WebElement searchBox=driver.findElement(By.id("search_query_top"));
         searchBox.sendKeys("tshirt"+ Keys.ENTER);
         WebElement error=driver.findElement(By.xpath("//p[@class='alert alert-warning']"));
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         String errorText =error.getText();
         System.out.println("Error message "+ errorText);
 
         searchBox=driver.findElement(By.id("search_query_top"));
         searchBox.clear();
         searchBox.sendKeys("t-shirt"+ Keys.ENTER);
-        BrowserUtilities.wait(2);
+        BrowserUtils.wait(2);
         WebElement count=driver.findElement(By.className("product-count"));
         System.out.println("itemcount "+ count.getText());
 
