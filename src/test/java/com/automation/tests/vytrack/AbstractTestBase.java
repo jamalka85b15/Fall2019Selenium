@@ -1,4 +1,4 @@
-package com.automation.tests;
+package com.automation.tests.vytrack;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.ConfigurationReader;
