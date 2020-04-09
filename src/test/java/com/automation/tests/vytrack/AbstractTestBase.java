@@ -3,6 +3,9 @@ package com.automation.tests.vytrack;
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.ConfigurationReader;
 import com.automation.utilities.Driver;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
@@ -15,39 +18,37 @@ public abstract class AbstractTestBase {
     protected WebDriverWait wait;
     protected Actions actions;
 
-//    protected ExtentReports report;
-//    protected ExtentHtmlReporter htmlReporter;
-//    protected ExtentTest test;
+    protected ExtentReports report;
+    protected ExtentHtmlReporter htmlReporter;
+    protected ExtentTest test;
 
     //@Optional - to make parameter optional
     //if you don't specify it, testng will require to specify this parameter for every test, in xml runner
 
-//    @BeforeTest
+    @BeforeTest
 //    @Parameters("reportName")
-//    public void setupTest(@Optional String reportName) {
+    public void setupTest(@Optional String reportName) {
 //        System.out.println("Report name: " + reportName);
 //        reportName = reportName == null ? "report.html" : reportName + ".html";
 //
-//        report = new ExtentReports();
-//
-//        String reportPath = "";
+        report = new ExtentReports();
+        String reportPath = "";
 //        //location of report file
-//        if (System.getProperty("os.name").toLowerCase().contains("win")) {
-//            reportPath = System.getProperty("user.dir") + "\\test-output\\" + reportName;
-//        } else {
-//            reportPath = System.getProperty("user.dir") + "/test-output/" + reportName;
-//        }
-//        //is a HTML report itself
-//        htmlReporter = new ExtentHtmlReporter(reportPath);
-//        //add it to the reporter
-//        report.attachReporter(htmlReporter);
-//        htmlReporter.config().setReportName("VYTRACK Test Automation Results");
-//    }
+        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            reportPath = System.getProperty("user.dir") + "\\test-output\\" + reportName;
+        } else {
+            reportPath = System.getProperty("user.dir") + "/test-output/" + reportName;
+        }
 //
-//    @AfterTest
-//    public void afterTest() {
-//        report.flush();//to release a report
-//    }
+        htmlReporter = new ExtentHtmlReporter(reportPath);      //---->  is a HTML report itself
+        report.attachReporter(htmlReporter);      //------>add it to the reporter
+        htmlReporter.config().setReportName("VYTRACK Test Automation Results");
+   }
+
+    @AfterTest
+    public void afterTest() {
+        report.flush();//to release a report
+    }
 
     @BeforeMethod
     public void setup() {
@@ -67,10 +68,10 @@ public abstract class AbstractTestBase {
         if (iTestResult.getStatus() == ITestResult.FAILURE) {
             //screenshot will have a name of the test
             String screenshotPath = BrowserUtils.getScreenshot(iTestResult.getName());
-            //test.fail(iTestResult.getName());//attach test name that failed
-            //BrowserUtils.wait(2);
-            //test.addScreenCaptureFromPath(screenshotPath, "Failed");//attach screenshot
-            //test.fail(iTestResult.getThrowable());//attach console output
+            test.fail(iTestResult.getName());//--------->   attach test name that failed
+            BrowserUtils.wait(2);
+            test.addScreenCaptureFromPath(screenshotPath, "Failed");//---------->   attach screenshot
+            test.fail(iTestResult.getThrowable());//----------->   attach console output
         }
         BrowserUtils.wait(2);
         Driver.closeDriver();
