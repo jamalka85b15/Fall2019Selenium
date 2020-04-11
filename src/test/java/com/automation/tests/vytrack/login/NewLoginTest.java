@@ -17,14 +17,16 @@ public class NewLoginTest extends AbstractTestBase {
         //we must add to every test at the beginning
         //test = report.createTest("Test name");
         test = report.createTest("Verify page title");
+
         LoginPage loginPage = new LoginPage();
         loginPage.login();
         //like system.out, but it goes to report as well
-       // test.info("Login as store manager");//log some steps
+        test.info("Login as store manager");//log some steps
         BrowserUtils.wait(2);
         Assert.assertEquals(Driver.getDriver().getTitle(), "Dashboard");
-
         //if assertion passed, it will set test status in report to passed
+
+
         test.pass("Page title Dashboard was verified");
     }
 
@@ -35,6 +37,7 @@ public class NewLoginTest extends AbstractTestBase {
     @Test
     public void verifyWarningMessage() {
         test = report.createTest("Verify warning message");
+
         LoginPage loginPage = new LoginPage();
         loginPage.login("wrong", "wrong");
         Assert.assertEquals(loginPage.getWarningMessageText(), "Invalid user name or password.");
@@ -43,9 +46,6 @@ public class NewLoginTest extends AbstractTestBase {
 
         test.pass("Warning message is displayed");
     }
-
-
-
 
     @Test(dataProvider = "credentials")
     public void loginWithDDT(String userName, String password) {
@@ -67,7 +67,7 @@ public class NewLoginTest extends AbstractTestBase {
         };
     }
 
-
+//
 //    @Test(dataProvider = "credentialsFromExcel")
 //    public void loginTestWithExcel(String execute, String username, String password, String firstname, String lastname, String result) {
 //        test = report.createTest("Login test for username :: " + username);
@@ -92,8 +92,8 @@ public class NewLoginTest extends AbstractTestBase {
 //        //execute	username	password	firstname	lastname	result
 //        return excelUtil.getDataArray();
 //    }
-//
-//    //Object[][] or Object[] or Iterator<Object[]>
-//    //Object[] - 1 column with a data
-//    //Object[][] 2+
+
+    //Object[][] or Object[] or Iterator<Object[]>
+    //Object[] - 1 column with a data
+    //Object[][] 2+
 }

@@ -24,26 +24,27 @@ public abstract class AbstractTestBase {
 
     //@Optional - to make parameter optional
     //if you don't specify it, testng will require to specify this parameter for every test, in xml runner
-
     @BeforeTest
-//    @Parameters("reportName")
-    public void setupTest() {
-//        System.out.println("Report name: " + reportName);
-//        reportName = reportName == null ? "report.html" : reportName + ".html";
+    @Parameters("reportName")
+    public void setupTest(@Optional String reportName) {
+        System.out.println("Report name: " + reportName);
+        reportName = reportName == null ? "report.html" : reportName + ".html";
 
         report = new ExtentReports();
+
         String reportPath = "";
-//        //location of report file
+        //location of report file
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
-            reportPath = System.getProperty("user.dir") + "\\test-output\\report.html";
+            reportPath = System.getProperty("user.dir") + "\\test-output\\" + reportName;
         } else {
-            reportPath = System.getProperty("user.dir") + "/test-output/report.html";
+            reportPath = System.getProperty("user.dir") + "/test-output/" + reportName;
         }
-//
-        htmlReporter = new ExtentHtmlReporter(reportPath);      //---->  is a HTML report itself
-        report.attachReporter(htmlReporter);      //------>add it to the reporter
+        //is a HTML report itself
+        htmlReporter = new ExtentHtmlReporter(reportPath);
+        //add it to the reporter
+        report.attachReporter(htmlReporter);
         htmlReporter.config().setReportName("VYTRACK Test Automation Results");
-   }
+    }
 
     @AfterTest
     public void afterTest() {
@@ -68,10 +69,10 @@ public abstract class AbstractTestBase {
         if (iTestResult.getStatus() == ITestResult.FAILURE) {
             //screenshot will have a name of the test
             String screenshotPath = BrowserUtils.getScreenshot(iTestResult.getName());
-            test.fail(iTestResult.getName());//--------->   attach test name that failed
+            test.fail(iTestResult.getName());//attach test name that failed
             BrowserUtils.wait(2);
-            test.addScreenCaptureFromPath(screenshotPath, "Failed");//---------->   attach screenshot
-            test.fail(iTestResult.getThrowable());//----------->   attach console output
+            test.addScreenCaptureFromPath(screenshotPath, "Failed");//attach screenshot
+            test.fail(iTestResult.getThrowable());//attach console output
         }
         BrowserUtils.wait(2);
         Driver.closeDriver();
