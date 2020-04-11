@@ -12,7 +12,7 @@ public class DateTimeUtilities {
     //MMM - to specify month like: Jan, Feb, Mar
     //dd - to specify day like 01,02,03
     //yyy - to specify year like 2010,2020
-    public static String getCurrent0Date(String format){
+    public static String getCurrentDate(String format){
         return LocalDate.now().format(DateTimeFormatter.ofPattern(format));
     }
 
